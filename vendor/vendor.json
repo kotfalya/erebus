@@ -1,0 +1,31 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "HmbftipkadrLlCfzzVQ+iFHbl6g=",
+			"path": "github.com/golang/glog",
+			"revision": "23def4e6c14b4da8ac2ed8007337bc5eb5007998",
+			"revisionTime": "2016-01-25T20:49:56Z"
+		},
+		{
+			"checksumSHA1": "ZY6NCrR80zUmtOtPtKffbmFxRWw=",
+			"path": "github.com/hashicorp/consul/api",
+			"revision": "64e3033d3c7f80af3f925f4665a9bc1af75d6153",
+			"revisionTime": "2016-07-06T17:54:05Z"
+		},
+		{
+			"checksumSHA1": "Uzyon2091lmwacNsl1hCytjhHtg=",
+			"path": "github.com/hashicorp/go-cleanhttp",
+			"revision": "ad28ea4487f05916463e2423a55166280e8254b5",
+			"revisionTime": "2016-04-07T17:41:26Z"
+		},
+		{
+			"checksumSHA1": "E3Xcanc9ouQwL+CZGOUyA/+giLg=",
+			"path": "github.com/hashicorp/serf/coordinate",
+			"revision": "6c4672d66fc6312ddde18399262943e21175d831",
+			"revisionTime": "2016-06-09T00:18:40Z"
+		}
+	],
+	"rootPath": "github.com/kotfalya/erebus"
+}
