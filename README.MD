@@ -1,2 +1,2 @@
 # erebus
-docker container orchestration with ui
+docker container cluster orchestration with ui
