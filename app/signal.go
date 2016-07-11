@@ -50,6 +50,7 @@ func (s *Signal) loadSignal() (string, error) {
 			return "", nil
 		}
 		atomic.StoreUint64(&s.waitIndex, pair.ModifyIndex)
+
 		return string(pair.Value), nil
 	} else {
 		_, err := s.initSignal()
@@ -65,6 +66,7 @@ func (s *Signal) loadSignal() (string, error) {
 func (s *Signal) initSignal() (*api.KVPair, error) {
 	key := &api.KVPair{Value: []byte("init"), Key: s.getSignalKey()}
 	_, err := s.consul.KV().Put(key, nil)
+
 	return key, err
 }
 
@@ -76,6 +78,7 @@ func (s *Signal) listenSignal() {
 		default:
 			if signal, err := s.loadSignal(); err != nil {
 				s.err <- err
+
 				return
 			} else if signal != "" {
 				s.Signal <- signal
