@@ -1,15 +1,19 @@
 package main
 
 import (
-	"github.com/kotfalya/erebus/bootstrap"
+	"github.com/kotfalya/erebus/agent"
 	"github.com/kotfalya/erebus/app"
 )
 
-
 func main() {
 	cfg := app.NewConsulConfig()
-	cfg.Parse()
+	// check if agent registered on consul
+	agent.CheckAndInit(cfg)
 
-	server := bootstrap.NewServer()
-	server.Start()
+	// consul tcp check
+	agent.AgentCheckTcpStart()
+
+	for {
+
+	}
 }

@@ -8,10 +8,6 @@ import (
 	"strings"
 )
 
-var nodeName = flag.String("nodeName", "node_default", "Node name in cluster")
-var serviceName = flag.String("serviceName", "", "Name of service")
-var groupName = flag.String("groupName", "", "Name of application")
-
 type Config struct {
 	NodeName    string
 	ServiceName string
@@ -20,24 +16,33 @@ type Config struct {
 }
 
 func NewConsulConfig() *Config {
-	return &Config{
+	flag.Parse()
+	if *serviceName == "" {
+		panic("serviceName is requered argument")
+	}
+
+	config := &Config{
 		*nodeName,
 		*serviceName,
 		*groupName,
 		driver.NewConsulClientNotPooled(),
 	}
-}
 
-func (c *Config) Parse() {
-	flag.Parse()
-
-	if *serviceName == "" {
-		panic("serviceName is requered argument")
-	}
-
-	if err := c.load(); err != nil {
+	if err := config.load(); err != nil {
 		panic(err)
 	}
+
+	return config
+}
+
+func (c *Config) FullName() (fullName string) {
+	fullName = c.ServiceName
+
+	if c.GroupName != "" {
+		fullName += "-" + c.GroupName
+	}
+
+	return
 }
 
 func (c *Config) load() error {

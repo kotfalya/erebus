@@ -23,7 +23,7 @@ func NewDistributedLock(name string, config *Config, stopLock chan struct{}) *Di
 	}
 }
 
-func (dl *DistributedLock) Lock() (leaderCh chan bool, err error) {
+func (dl *DistributedLock) Lock() (leaderCh <-chan struct{}, err error) {
 	lock, err := dl.consul.LockOpts(&api.LockOptions{
 		Key:         dl.getLockKey(),
 		SessionName: dl.getSessionName(),

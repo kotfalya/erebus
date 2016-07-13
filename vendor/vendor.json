@@ -149,8 +149,8 @@
 		{
 			"checksumSHA1": "ZY6NCrR80zUmtOtPtKffbmFxRWw=",
 			"path": "github.com/hashicorp/consul/api",
-			"revision": "64e3033d3c7f80af3f925f4665a9bc1af75d6153",
-			"revisionTime": "2016-07-06T17:54:05Z"
+			"revision": "38949860de7b864f7ea1dbc8083f6c0a9826f682",
+			"revisionTime": "2016-07-11T23:37:57Z"
 		},
 		{
 			"checksumSHA1": "Uzyon2091lmwacNsl1hCytjhHtg=",
