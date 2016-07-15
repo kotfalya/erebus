@@ -1,4 +1,6 @@
-FROM registry.docker.dev:5000/govendor
+FROM golang:1.6
+
+RUN go get -u github.com/kardianos/govendor
 
 ADD . /go/src/github.com/kotfalya/erebus
 
