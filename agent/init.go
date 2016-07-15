@@ -14,7 +14,7 @@ func CheckAndInit(config *app.Config) {
 	if err != nil {
 		panic(err)
 	}
-	
+
 	if _, ok := services[config.FullName()]; ok {
 		return
 	}

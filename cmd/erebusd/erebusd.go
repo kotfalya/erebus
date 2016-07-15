@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/kotfalya/erebus/agent"
 	"github.com/kotfalya/erebus/app"
+	"time"
 )
 
 func main() {
@@ -12,8 +13,11 @@ func main() {
 
 	// consul tcp check
 	agent.AgentCheckTcpStart()
-
+	
 	for {
-
+		select {
+		default:
+			time.Sleep(100 * time.Millisecond)
+		}
 	}
 }

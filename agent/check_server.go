@@ -7,14 +7,8 @@ import (
 	"strconv"
 )
 
-const (
-	AGENT_CHECK_INTERVAL = "1s"
-	AGENT_CHECK_TIMEOUT  = "100ms"
-	AGENT_CONN_TYPE      = "tcp"
-)
-
 func AgentCheckAddress() string {
-	return *agentIP + ":" + strconv.Itoa(*agentCheckPort)
+	return *agentIP + ":" + strconv.Itoa(AGENT_CHECK_PORT)
 }
 
 func AgentCheckTcpStart() {
@@ -32,8 +26,7 @@ func AgentCheckTcpStart() {
 			if err != nil {
 				glog.Errorln("Error accepting: ", err.Error())
 			}
-
-			glog.V(3).Infoln("connected")
+		
 			conn.Close()
 		}
 	}()
